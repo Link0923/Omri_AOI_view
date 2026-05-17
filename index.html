@@ -276,6 +276,10 @@
                     <input type="checkbox" id="aoiCheck" checked>
                     <label for="aoiCheck">Areas of Interest</label>
                 </div>
+                <div class="layer-item" onclick="toggleLayer('progress', event)">
+                    <input type="checkbox" id="progressCheck" checked>
+                    <label for="progressCheck">In Progress</label>
+                </div>
                 <div class="layer-item" onclick="toggleLayer('zipcodes', event)">
                     <input type="checkbox" id="zipcodesCheck">
                     <label for="zipcodesCheck">Zip Codes</label>
@@ -326,7 +330,7 @@
 
             // Create layers
             const countiesLayer = new GeoJSONLayer({
-                url: "https://media.githubusercontent.com/media/Link0923/Omri_AOI_view/main/CA_counties.geojson",
+                url: "CA_counties.geojson",
                 title: "Counties",
                 visible: false,
                 renderer: {
@@ -347,7 +351,7 @@
             });
 
             const zipcodesLayer = new GeoJSONLayer({
-                url: "https://media.githubusercontent.com/media/Link0923/Omri_AOI_view/main/CA_zipcodes.geojson",
+                url: "CA_zipcodes.geojson",
                 title: "Zip Codes",
                 visible: false,
                 renderer: {
@@ -368,7 +372,7 @@
             });
 
             const aoiLayer = new GeoJSONLayer({
-                url: "https://media.githubusercontent.com/media/Link0923/Omri_AOI_view/main/Service_zones_20260703.geojson",
+                url: "Service_zones_20260703.geojson",
                 title: "Areas of Interest",
                 renderer: {
                     type: "simple",
@@ -387,6 +391,26 @@
                 }
             });
 
+            const progressLayer = new GeoJSONLayer({
+                url: "In_progress.geojson",
+                title: "In Progress",
+                renderer: {
+                    type: "simple",
+                    symbol: {
+                        type: "simple-fill",
+                        color: [0, 112, 255, 1],  // blue
+                        outline: {
+                            color: [0, 0, 0, 1], // black
+                            width: 0.5
+                        }
+                    }
+                },
+                popupTemplate: {
+                    title: "In Progress",
+                    content: "County: {COUNTY_NAME}"
+                }
+            });
+
             // Create graphics layer for highlighting selected features
             const highlightLayer = new GraphicsLayer({
                 title: "Highlights"
@@ -395,7 +419,7 @@
             // Create map with topo-vector basemap
             const map = new Map({
                 basemap: "topo-vector",
-                layers: [countiesLayer, zipcodesLayer, aoiLayer, highlightLayer]
+                layers: [countiesLayer, zipcodesLayer, aoiLayer, progressLayer, highlightLayer]
             });
 
             // Create map view centered on California
@@ -410,7 +434,8 @@
             window.layers = {
                 counties: countiesLayer,
                 zipcodes: zipcodesLayer,
-                aoi: aoiLayer
+                aoi: aoiLayer,
+                progress: progressLayer
             };
 
             // Store selection state
