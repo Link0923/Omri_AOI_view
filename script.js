@@ -261,7 +261,6 @@ require([
             pane.classList.add('open');
             // Auto-enable zip codes layer
             window.layers.zipcodes.visible = true;
-            document.getElementById('zipcodesCheck').checked = true;
             // Start in point mode
             setSelectionMode('point');
         } else {
