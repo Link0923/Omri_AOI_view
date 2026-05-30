@@ -11,7 +11,7 @@ require([
 
     // Create layers
     const countiesLayer = new GeoJSONLayer({
-        url: "CA_counties.geojson",
+        url: "https://media.githubusercontent.com/media/Link0923/Omri_AOI_view/main/CA_counties.geojson",
         title: "Counties",
         visible: false,
         renderer: {
@@ -53,7 +53,7 @@ require([
     });
 
     const aoiLayer = new GeoJSONLayer({
-        url: "Service_zones_20260703.geojson",
+        url: "https://media.githubusercontent.com/media/Link0923/Omri_AOI_view/main/Service_zones_20260703.geojson",
         title: "Areas of Interest",
         renderer: {
             type: "simple",
