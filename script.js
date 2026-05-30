@@ -53,7 +53,7 @@ require([
     });
 
     const aoiLayer = new GeoJSONLayer({
-        url: "https://media.githubusercontent.com/media/Link0923/Omri_AOI_view/main/Service_zones_20260703.geojson",
+        url: "https://raw.githubusercontent.com/media/Link0923/Omri_AOI_view/main/Service_zones_20260703.geojson",
         title: "Areas of Interest",
         renderer: {
             type: "simple",
