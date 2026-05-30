@@ -11,7 +11,7 @@ require([
 
     // Create layers
     const countiesLayer = new GeoJSONLayer({
-        url: "https://media.githubusercontent.com/media/Link0923/Omri_AOI_view/main/CA_counties.geojson",
+        url: "https://raw.githubusercontent.com/media/Link0923/Omri_AOI_view/main/CA_counties.geojson",
         title: "Counties",
         visible: false,
         renderer: {
@@ -73,7 +73,7 @@ require([
     });
 
     const progressLayer = new GeoJSONLayer({
-        url: "https://media.githubusercontent.com/media/Link0923/Omri_AOI_view/main/In_progress.geojson",
+        url: "https://raw.githubusercontent.com/media/Link0923/Omri_AOI_view/main/In_progress.geojson",
         title: "In Progress",
         renderer: {
             type: "simple",
